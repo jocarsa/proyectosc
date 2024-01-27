@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <conio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int longitudCaracteres(){
     FILE *archivo;
@@ -36,13 +37,17 @@ void copiarArchivo(){
     
     int caracter;
     
-    while(fscanf(archivo,"%c",&caracter) == 1){
+    while(fscanf(archivoorigen,"%c",&caracter) == 1){
         fprintf(archivodestino,"%c",caracter);
     }
     printf("\n");
-    fclose(archivo);
+    printf("\n");
+    fclose(archivoorigen);
+    fclose(archivodestino);
 }
-
+void salirPrograma(){
+    exit(0);
+}
 int menu(){
     printf("Selecciona una operacion: \n");
     printf("1.-Calcular tamaño \n");
@@ -63,11 +68,14 @@ int menu(){
             break;
         case 3:
             printf("Vamos a copiar un archivo \n");
+            copiarArchivo();
             break;
         case 4:
             printf("Vamos a salir del programa \n");
+            salirPrograma();
             break;
     }
+    menu();
     return 0;
 }
 

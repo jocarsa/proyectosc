@@ -36,11 +36,13 @@ void copiarArchivo(){
     
     int caracter;
     
-    while(fscanf(archivo,"%c",&caracter) == 1){
+    while(fscanf(archivoorigen,"%c",&caracter) == 1){
         fprintf(archivodestino,"%c",caracter);
     }
     printf("\n");
-    fclose(archivo);
+    printf("\n");
+    fclose(archivoorigen);
+    fclose(archivodestino);
 }
 
 int menu(){
@@ -63,11 +65,13 @@ int menu(){
             break;
         case 3:
             printf("Vamos a copiar un archivo \n");
+            copiarArchivo();
             break;
         case 4:
             printf("Vamos a salir del programa \n");
             break;
     }
+    menu();
     return 0;
 }
 

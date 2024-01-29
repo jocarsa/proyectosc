@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main(){
     
@@ -14,25 +15,24 @@ int main(){
     int diagonal = 1;
     while(fscanf(archivo,"%c",&caracter) == 1){
         // Cada once ejecuciones del contador verdadero (cuando el contador verdadero es divisible por once, o sea, una de cada 11 veces)
-        if(contador2 % 11 != 0){
+       // if(contador2 % 11 != 0){
             // Solo si NO es divisible, aumenta el contador falso
-            //printf("El caracter %i es:  %c \n",contador,caracter);
             // Convertimos el char en entero
-            int entero;
-            entero = caracter - '0';
+            char cadena[2];
+            // Cadena es un string pero caracter es un char
+            cadena[0] = caracter;
             // Comprobamos si los caracteres son 0
             for(int i = 1;i<=100;i+=11){
-                if(i == contador){
-                    if(caracter != 4201008){
-                        printf("Read character: %c, ASCII value: %d\n", caracter, caracter);
-                        printf("El entero es: %d \n",entero);
-                        printf("No es diagonal");
+                if(i == contador){   
+                    if(strcmp(cadena,"0") != 1){
+                        printf("El entero es: %c \n",caracter);
+                        printf("No es diagonal \n");
                         break;
-                    }
+                    }      
                 }
             }
             contador++;
-        }
+        //}
         // Ahora bien, el contador verdadero lo sumo siempre
         contador2++;  
     }
